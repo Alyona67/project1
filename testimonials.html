@@ -1,73 +1,119 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы клиентов - Фотостудия "Memories"</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">   
+    <title>Отзывы - Фотостудия</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="testimonials-page">
+    <!-- Кнопка добавления отзыва -->
+    <button class="add-review-btn">+</button>
 
-<body>
-    <section id="testimonials" class="testimonials">
+    <!-- Форма добавления отзыва -->
+    <div class="review-form-overlay" id="reviewForm">
+        <div class="review-form">
+            <h3 class="form-title">Добавить отзыв</h3>
+            <form id="newReviewForm">
+                <div class="form-group">
+                    <label for="clientName">Имя и фамилия</label>
+                    <input type="text" id="clientName" required>
+                </div>
+                <div class="form-group">
+                    <label for="shootType">Тип съемки</label>
+                    <select id="shootType" required>
+                        <option value="">Выберите тип</option>
+                        <option value="Семейная">Семейная</option>
+                        <option value="Портретная">Портретная</option>
+                        <option value="Love-story">Love-story</option>
+                        <option value="Коммерческая">Коммерческая</option>
+                        <option value="Модельное портфолио">Модельное портфолио</option>
+                        <option value="Другое">Другое</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reviewText">Отзыв</label>
+                    <textarea id="reviewText" required></textarea>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn">Отмена</button>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Шапка -->
+    <header class="page-header testimonials-header">
         <div class="container">
-            <h2 class="section-title">Отзывы клиентов</h2>
-            
-            <div class="testimonial">
-                <p>"Очень профессиональная команда! Фотографии получились просто потрясающие. Обязательно вернусь для следующей фотосессии!"</p>
-                <p class="client-name">- Мария Иванова</p>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Спасибо за прекрасные свадебные фотографии! Вы смогли поймать самые искренние моменты нашего праздника."</p>
-                <p class="client-name">- Анна и Дмитрий Петровы</p>
-            </div>
-            
-            <div class="testimonial">
-                <p>"Снимали здесь портфолио для модели. Отличный свет, профессиональное оборудование и творческая атмосфера."</p>
-                <p class="client-name">- Екатерина Смирнова</p>
-            </div>
+            <h1 class="page-title">Отзывы</h1>
+            <p class="page-subtitle">Мнение наших клиентов</p>
+        </div>
+    </header>
 
-            <div class="testimonial">
-                <p>"Прекрасный опыт! Фотограф смог раскрепостить даже самых стеснительных членов нашей семьи. Снимки получились живыми и эмоциональными."</p>
-                <p class="client-name">- Семья Орловых</p>
-            </div>
+    <!-- Отзывы -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-grid" id="testimonialsContainer">
+                <!-- Отзыв 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Прекрасная студия с идеальным светом. Фотографии получились именно такими, как я хотела. Профессиональный подход и комфортная атмосфера."</p>
+                    <div class="testimonial-client">
+                        <div class="client-avatar">АК</div>
+                        <div class="client-info">
+                            <h4>Анна К.</h4>
+                            <p>Семейная фотосессия</p>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="testimonial">
-                <p>"Искала студию для коммерческой съемки и не ошиблась с выбором. Профессиональное оборудование и отличный результат."</p>
-                <p class="client-name">- Ольга Козлова, бренд-менеджер</p>
+                <!-- Отзыв 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Искала студию для портфолио и нашла идеальный вариант. Минималистичный интерьер, отличное оборудование. Результат превзошел ожидания."</p>
+                    <div class="testimonial-client">
+                        <div class="client-avatar">МС</div>
+                        <div class="client-info">
+                            <h4>Мария С.</h4>
+                            <p>Портфолио модели</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Отличный лофт для коммерческой съемки. Пространство позволяет работать с большими группами. Всем рекомендую!"</p>
+                    <div class="testimonial-client">
+                        <div class="client-avatar">ДП</div>
+                        <div class="client-info">
+                            <h4>Дмитрий П.</h4>
+                            <p>Коммерческая съемка</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Статистика -->
+    <section class="testimonials-stats">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Фотостудия "Memories"</h3>
-                    <p>Профессиональные фотосессии в Гродно</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 id="clientsCount">150+</h3>
+                    <p>Довольных клиентов</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Социальные сети</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                <div class="stat-item">
+                    <h3>4.9</h3>
+                    <p>Средняя оценка</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Часы работы</h3>
-                    <p>Пн-Пт: 9:00 - 20:00</p>
-                    <p>Сб-Вс: 10:00 - 22:00</p>
+                <div class="stat-item">
+                    <h3 id="reviewsCount">300+</h3>
+                    <p>Успешных съемок</p>
                 </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Фотостудия "Memories". Все права защищены.</p>
             </div>
         </div>
-    </footer>
+    </section>
 
+    <script src="testimonials.js"></script>
 </body>
 </html>

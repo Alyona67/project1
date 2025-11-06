@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Локации - Фотостудия</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #fcfcfb;
+            color: #504740;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/locations-fon.jpg') center/cover no-repeat;
+            padding: 100px 0 60px 0;
+            text-align: center;
+        }
+
+        .page-title {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5rem;
+            color: #e3dacc;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: #e3dacc;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Сетка локаций */
+        .locations-section {
+            padding: 80px 0;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .location-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 200px;
+            background: #f5f5f5;
+        }
+
+        .location-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .location-name {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            color: #504740;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .location-type {
+            font-family: 'Trebuchet MS', Helvetica;
+            font-size: 0.9rem;
+            color: #746b5e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .location-price {
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #c8a97e;
+        }
+
+        /* Цвета локаций */
+        .location-card:nth-child(1) .location-image { background: linear-gradient(135deg, #e3dacc 0%, #c8a97e 100%); }
+        .location-card:nth-child(2) .location-image { background: linear-gradient(135deg, #f5f5f5 0%, #bdbdbd 100%); }
+        .location-card:nth-child(3) .location-image { background: linear-gradient(135deg, #efebe9 0%, #8d6e63 100%); }
+        .location-card:nth-child(4) .location-image { background: linear-gradient(135deg, #eceff1 0%, #607d8b 100%); }
+
+        /* Преимущества */
+        .benefits {
+            background: #f5f5f5;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .benefit-item {
+            padding: 20px;
+        }
+
+        .benefit-item h3 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            color: #504740;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 80px 0 40px 0;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Локации</h1>
+            <p class="page-subtitle">Минимализм в деталях</p>
+        </div>
+    </header>
+
+    <!-- Локации -->
+    <section class="locations-section">
+        <div class="container">
+            <div class="locations-grid">
+                <!-- Локация 1 -->
+                <div class="location-card">
+                    <div class="location-image"></div>
+                    <div class="location-content">
+                        <h3 class="location-name">Minimal Loft</h3>
+                        <p class="location-type">Лофт • 120м²</p>
+                        <div class="location-price">2 500 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Локация 2 -->
+                <div class="location-card">
+                    <div class="location-image"></div>
+                    <div class="location-content">
+                        <h3 class="location-name">Urban Space</h3>
+                        <p class="location-type">Урбан • 90м²</p>
+                        <div class="location-price">1 800 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Локация 3 -->
+                <div class="location-card">
+                    <div class="location-image"></div>
+                    <div class="location-content">
+                        <h3 class="location-name">Scandi Light</h3>
+                        <p class="location-type">Сканди • 75м²</p>
+                        <div class="location-price">2 100 ₽/час</div>
+                    </div>
+                </div>
+
+                <!-- Локация 4 -->
+                <div class="location-card">
+                    <div class="location-image"></div>
+                    <div class="location-content">
+                        <h3 class="location-name">Beauty Studio</h3>
+                        <p class="location-type">Портрет • 60м²</p>
+                        <div class="location-price">3 500 ₽/час</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div style="font-size: 2rem; color: #c8a97e;">⏱️</div>
+                    <h3>Гибкий график</h3>
+                </div>
+                <div class="benefit-item">
+                    <div style="font-size: 2rem; color: #c8a97e;">🎯</div>
+                    <h3>Профессиональный свет</h3>
+                </div>
+                <div class="benefit-item">
+                    <div style="font-size: 2rem; color: #c8a97e;">💡</div>
+                    <h3>Творческая атмосфера</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Минимальная интерактивность
+        document.querySelectorAll('.location-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const name = card.querySelector('.location-name').textContent;
+                alert(`${name}\n\nДля бронирования свяжитесь с нами.`);
+            });
+        });
+    </script>
+</body>
+</html>
