@@ -1,90 +1,106 @@
 // Управление формой отзывов
 const reviewForm = document.getElementById('reviewForm');
-const addReviewBtn = document.querySelector('.add-review-btn');
-const newReviewForm = document.getElementById('newReviewForm');
 const testimonialsContainer = document.getElementById('testimonialsContainer');
-const clientsCount = document.getElementById('clientsCount');
-const reviewsCount = document.getElementById('reviewsCount');
+const submitBtn = document.getElementById('submitReviewBtn');
 
-function openForm() {
-    reviewForm.style.display = 'block';
+// Загружаем отзывы при загрузке страницы
+// Загружаем отзывы при загрузке страницы
+function loadTestimonials() {
+    const savedTestimonials = localStorage.getItem('userTestimonials');
+    
+    // Если есть сохраненные отзывы - очищаем контейнер и загружаем только их
+    if (savedTestimonials) {
+        const testimonials = JSON.parse(savedTestimonials);
+        
+        // Очищаем контейнер от исходных отзывов
+        testimonialsContainer.innerHTML = '';
+        
+        // Добавляем только сохраненные отзывы
+        testimonials.forEach(testimonial => {
+            addTestimonialToDOM(testimonial);
+        });
+    }
+    // Если нет сохраненных отзывов - оставляем исходные из HTML
 }
 
-function closeForm() {
-    reviewForm.style.display = 'none';
-    newReviewForm.reset();
+// Сохраняем отзывы в localStorage
+function saveTestimonials() {
+    const testimonials = [];
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+        const text = card.querySelector('.testimonial-text').textContent;
+        const name = card.querySelector('.client-info h4').textContent;
+        const type = card.querySelector('.client-info p').textContent;
+        const initials = card.querySelector('.client-avatar').textContent;
+        
+        testimonials.push({ text, name, type, initials });
+    });
+    localStorage.setItem('userTestimonials', JSON.stringify(testimonials));
 }
 
-// Обработчик отправки формы
-newReviewForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('clientName').value;
-    const shootType = document.getElementById('shootType').value;
-    const reviewText = document.getElementById('reviewText').value;
-    
-    // Создаем новый отзыв
-    const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
-    
+// Добавляем отзыв в DOM
+function addTestimonialToDOM(testimonial) {
     const newTestimonial = document.createElement('div');
     newTestimonial.className = 'testimonial-card';
     newTestimonial.innerHTML = `
-        <p class="testimonial-text">"${reviewText}"</p>
+        <p class="testimonial-text">${testimonial.text}</p>
         <div class="testimonial-client">
-            <div class="client-avatar">${initials}</div>
+            <div class="client-avatar">${testimonial.initials}</div>
             <div class="client-info">
-                <h4>${name}</h4>
-                <p>${shootType}</p>
+                <h4>${testimonial.name}</h4>
+                <p>${testimonial.type}</p>
             </div>
         </div>
     `;
-    
-    // Добавляем новый отзыв в начало
-    testimonialsContainer.insertBefore(newTestimonial, testimonialsContainer.firstChild);
-    
-    // Обновляем счетчики
-    updateCounters();
-    
-    // Закрываем форму и очищаем
-    closeForm();
-    
-    // Показываем подтверждение
-    alert('Спасибо за ваш отзыв!');
-});
-
-// Обновление счетчиков
-function updateCounters() {
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    reviewsCount.textContent = `${testimonialCards.length}+`;
+    testimonialsContainer.prepend(newTestimonial);
 }
 
-// Закрытие формы по клику на overlay
-reviewForm.addEventListener('click', function(e) {
-    if (e.target === reviewForm) {
-        closeForm();
-    }
-});
-
-// Открытие формы по кнопке
-addReviewBtn.addEventListener('click', openForm);
-
-// Закрытие формы по кнопке отмена
-document.querySelector('.cancel-btn').addEventListener('click', closeForm);
-
-// Анимация появления отзывов
 document.addEventListener('DOMContentLoaded', function() {
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    // Загружаем сохраненные отзывы
+    loadTestimonials();
     
-    testimonialCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
+    // Обработчик отправки отзыва
+    submitBtn.addEventListener('click', function() {
+        const name = document.getElementById('clientName').value;
+        const shootType = document.getElementById('shootType').value;
+        const reviewText = document.getElementById('reviewText').value;
         
-        setTimeout(() => {
-            card.style.transition = 'all 0.6s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 200);
+        if (!name || !shootType || !reviewText) {
+            alert('Заполните все поля');
+            return;
+        }
+        
+        // Создаем новый отзыв
+        const initials = name.split(' ').map(n => n[0]).join('').toUpperCase();
+        const testimonial = {
+            text: `"${reviewText}"`,
+            name: name,
+            type: shootType,
+            initials: initials
+        };
+        
+        // Добавляем в DOM и сохраняем
+        addTestimonialToDOM(testimonial);
+        saveTestimonials();
+        
+        // Закрываем форму
+        reviewForm.style.display = 'none';
+        document.getElementById('newReviewForm').reset();
+        
+        alert('Спасибо за ваш отзыв!');
     });
     
-    updateCounters();
+    // Остальные обработчики...
+    document.querySelector('.add-review-btn').addEventListener('click', function() {
+        reviewForm.style.display = 'block';
+    });
+    
+    document.querySelector('.cancel-btn').addEventListener('click', function() {
+        reviewForm.style.display = 'none';
+    });
+    
+    reviewForm.addEventListener('click', function(e) {
+        if (e.target === reviewForm) {
+            reviewForm.style.display = 'none';
+        }
+    });
 });

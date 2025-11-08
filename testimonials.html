@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отзывы - Фотостудия</title>
+    <title>Фотостудия "Memories" - Профессиональные фотосессии</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="testimonials-page">
-    <!-- Кнопка добавления отзыва -->
     <button class="add-review-btn">+</button>
 
     <!-- Форма добавления отзыва -->
@@ -24,10 +26,11 @@
                     <select id="shootType" required>
                         <option value="">Выберите тип</option>
                         <option value="Семейная">Семейная</option>
+                        <option value="Love Story">Love Story</option>
                         <option value="Портретная">Портретная</option>
-                        <option value="Love-story">Love-story</option>
-                        <option value="Коммерческая">Коммерческая</option>
-                        <option value="Модельное портфолио">Модельное портфолио</option>
+                        <option value="Свадебная">Свадебная</option>
+                        <option value="Художественная">Художественная</option>
+                        <option value="Групповой портрет">Групповой портрет</option>
                         <option value="Другое">Другое</option>
                     </select>
                 </div>
@@ -37,7 +40,7 @@
                 </div>
                 <div class="form-buttons">
                     <button type="button" class="cancel-btn">Отмена</button>
-                    <button type="submit" class="submit-btn">Отправить</button>
+                    <button type="button" class="submit-btn" id="submitReviewBtn">Отправить</button>
                 </div>
             </form>
         </div>
@@ -62,7 +65,7 @@
                         <div class="client-avatar">АК</div>
                         <div class="client-info">
                             <h4>Анна К.</h4>
-                            <p>Семейная фотосессия</p>
+                            <p>Семейная</p>
                         </div>
                     </div>
                 </div>
@@ -74,7 +77,7 @@
                         <div class="client-avatar">МС</div>
                         <div class="client-info">
                             <h4>Мария С.</h4>
-                            <p>Портфолио модели</p>
+                            <p>Портретная</p>
                         </div>
                     </div>
                 </div>
@@ -86,7 +89,7 @@
                         <div class="client-avatar">ДП</div>
                         <div class="client-info">
                             <h4>Дмитрий П.</h4>
-                            <p>Коммерческая съемка</p>
+                            <p>Групповой портрет</p>
                         </div>
                     </div>
                 </div>
@@ -94,26 +97,33 @@
         </div>
     </section>
 
-    <!-- Статистика -->
-    <section class="testimonials-stats">
+    <footer>
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 id="clientsCount">150+</h3>
-                    <p>Довольных клиентов</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Фотостудия "Memories"</h3>
+                    <p>Профессиональные фотосессии в Гродно</p>
                 </div>
-                <div class="stat-item">
-                    <h3>4.9</h3>
-                    <p>Средняя оценка</p>
+                <div class="footer-section">
+                    <h3>Социальные сети</h3>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/___alena_0706" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3 id="reviewsCount">300+</h3>
-                    <p>Успешных съемок</p>
+                <div class="footer-section">
+                    <h3>Часы работы</h3>
+                    <p>Пн-Пт: 9:00 - 21:00</p>
+                    <p>Сб-Вс: 10:00 - 20:00</p>
                 </div>
             </div>
+            <div class="copyright">
+                <p>&copy; 2025 Фотостудия "Memories". Все права защищены.</p>
+            </div>
         </div>
-    </section>
-
+    </footer>
     <script src="testimonials.js"></script>
 </body>
 </html>
