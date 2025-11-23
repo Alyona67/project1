@@ -141,11 +141,6 @@ section {
     padding: 30px 25px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.highlight-item:hover {
-    transform: translateY(-5px);
 }
 
 .highlight-item h3 {
@@ -228,6 +223,7 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    
 }
 
 .pricing-card p {
@@ -264,6 +260,8 @@ section {
     color: #c8a97e;
     margin: 20px 0;
 }
+
+
 
 
 
@@ -1214,6 +1212,7 @@ body.testimonials-page .page-subtitle {
 
 .certificate-page .cta-btn.primary:hover {
     background: #b19978;
+    filter: brightness(0.8);
 }
 
 .certificate-page .cta-btn.secondary {
@@ -1624,35 +1623,34 @@ body.testimonials-page .page-subtitle {
 
 
 
-/* Фотостудия Барокко */
 /* Стили для страниц локаций */
 .location-page .page-header {
     background: #fcfcfb;
     height: auto;
     min-height: auto;
-    padding: 50px 0 50px 0;
+    padding: 48px 0 55px 0;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
 }
 
 .location-page .page-title {
-    color: #5c524b;
-    font-size: 2.1rem;
-    margin-bottom: 15px;
+    color: #6f6657;
+    font-size: 2.0rem;
+    margin-bottom: 22px;
     font-family: 'Raleway', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 3px;
 }
 
 .location-page .page-subtitle {
-    color: #655b53;
+    color: #685f50;
     font-size: 1.1rem;
     font-weight: 300;
     letter-spacing: 1px;
 }
 
 .studio-description {
-    padding: 80px 0;
+    padding: 50px 0 50px 0;
     background: #ffffff;
 }
 
@@ -1664,7 +1662,7 @@ body.testimonials-page .page-subtitle {
 
 .description-content p {
     font-family: 'Raleway', sans-serif;
-    color: #504740;
+    color: #574d45;
     line-height: 1.8;
     font-size: 1.1rem;
     font-weight: 300;
@@ -1676,13 +1674,18 @@ body.testimonials-page .page-subtitle {
     margin-right: auto;
 }
 
+.description-content p strong {
+    font-weight: 600;
+    color: #71655c;
+}
+
 
 .description-content p:last-child {
     margin-bottom: 0;
 }
 
 .studio-gallery {
-    padding: 60px 0;
+    padding: 65px 0;
     background: #fafafa;
     border-top: 1px solid #f0f0f0;
 }
@@ -1697,7 +1700,7 @@ body.testimonials-page .page-subtitle {
 
 .gallery-item {
     background: white;
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
 }
 
@@ -1736,7 +1739,7 @@ body.testimonials-page .page-subtitle {
 
 /* Стили для секции записи */
 .booking-cta {
-    padding: 60px 0;
+    padding: 55px 0;
     background: #ffffff;
     border-top: 1px solid #f0f0f0;
 }
@@ -1748,32 +1751,34 @@ body.testimonials-page .page-subtitle {
 }
 
 .booking-content p {
-    font-family: 'Raleway', sans-serif;
-    color: #504740;
+    font-family: Noto Sans, sans-serif;
+    color: #655b53;
     font-size: 1.1rem;
     line-height: 1.7;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     font-weight: 300;
+    letter-spacing: 0.5px;
 }
 
 .booking-btn {
     display: inline-block;
     padding: 15px 40px;
-    background: #504740;
+    background: #5e544b;
     color: white;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 5px;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.0rem;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    border: 1px solid #504740;
+    transition: all 0.1s ease;
+    border: 1px solid #5e544b;
 }
 
 .booking-btn:hover {
-    background: transparent;
-    color: #504740;
+    background: #c8a97e; 
+    color: white;
+    border-color: #c8a97e; 
 }
 
 /* Адаптивность */
